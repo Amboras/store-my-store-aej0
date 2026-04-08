@@ -50,7 +50,7 @@ export default function ProductAccordion({ description, details }: ProductAccord
     <div className="border-t">
       {description && (
         <AccordionItem title="Description" defaultOpen>
-          <p>{description}</p>
+          <div dangerouslySetInnerHTML={{ __html: description }} />
         </AccordionItem>
       )}
 
