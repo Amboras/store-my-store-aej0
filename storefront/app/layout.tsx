@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Lato, Inter } from 'next/font/google'
+import { Fraunces, Inter } from 'next/font/google'
 import { Providers } from './providers'
 import Header from '@/components/layout/header'
 import Footer from '@/components/layout/footer'
@@ -14,9 +14,9 @@ import dynamic from 'next/dynamic'
 
 const CookieConsent = dynamic(() => import('@/components/cookie-consent'))
 
-const heading = Lato({
+const heading = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-heading',
   display: 'swap',
 })
@@ -30,10 +30,10 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Store — Modern Commerce',
-    template: '%s | Store',
+    default: 'Aureum Coffee Co. — Small-Batch Specialty Coffee',
+    template: '%s | Aureum Coffee Co.',
   },
-  description: 'Discover curated products crafted with care. A modern ecommerce experience.',
+  description: 'Small-batch specialty coffee, roasted to order and shipped within 48 hours. Single-origin beans from ethical family farms in Ethiopia and Colombia.',
 }
 
 export default function RootLayout({

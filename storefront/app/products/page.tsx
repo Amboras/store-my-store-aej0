@@ -26,9 +26,10 @@ export default function ProductsPage() {
       {/* Page Header */}
       <div className="border-b">
         <div className="container-custom py-section-sm">
-          <h1 className="text-h1 font-heading font-semibold">Shop All</h1>
-          <p className="mt-2 text-muted-foreground">
-            Browse our complete collection
+          <p className="text-xs uppercase tracking-[0.25em] text-accent mb-3">The Lineup</p>
+          <h1 className="font-heading text-4xl sm:text-5xl font-medium tracking-tight">Shop all roasts</h1>
+          <p className="mt-3 text-muted-foreground max-w-xl">
+            Small-batch specialty coffee, roasted to order. Explore our single-origin lineup and signature blends.
           </p>
         </div>
       </div>

@@ -4,16 +4,17 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 0 0% 10%;
-    --muted: 40 10% 94%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 35 40% 50%;
-    --accent-foreground: 0 0% 100%;
-    --border: 40 10% 88%;
-    --ring: 35 40% 50%;
-    --primary: 0 0% 10%;
-    --primary-foreground: 0 0% 98%;
+    /* Aureum Coffee Co. — warm, earthy palette */
+    --background: 36 30% 97%;           /* warm cream */
+    --foreground: 22 25% 14%;           /* deep espresso */
+    --muted: 34 22% 93%;                /* soft latte */
+    --muted-foreground: 25 12% 40%;     /* roasted bean */
+    --accent: 22 55% 42%;               /* burnt copper */
+    --accent-foreground: 36 30% 97%;
+    --border: 32 18% 85%;
+    --ring: 22 55% 42%;
+    --primary: 22 25% 14%;              /* espresso */
+    --primary-foreground: 36 30% 97%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
 
@@ -23,16 +24,16 @@
   }
 
   .dark {
-    --background: 0 0% 6%;
-    --foreground: 40 20% 94%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 35 45% 55%;
-    --accent-foreground: 0 0% 100%;
-    --border: 0 0% 16%;
-    --ring: 35 45% 55%;
-    --primary: 40 20% 94%;
-    --primary-foreground: 0 0% 6%;
+    --background: 22 20% 8%;
+    --foreground: 36 25% 94%;
+    --muted: 22 15% 14%;
+    --muted-foreground: 30 10% 58%;
+    --accent: 22 55% 55%;
+    --accent-foreground: 22 20% 8%;
+    --border: 22 15% 18%;
+    --ring: 22 55% 55%;
+    --primary: 36 25% 94%;
+    --primary-foreground: 22 20% 8%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
   }
@@ -72,13 +73,13 @@
     @apply w-full;
   }
 
-  /* Brand color utilities - uses colors from Store.metadata.brand */
+  /* Brand color utilities */
   .btn-brand-primary {
     background-color: var(--brand-primary, hsl(var(--primary)));
-    color: white;
+    color: hsl(var(--primary-foreground));
   }
   .btn-brand-primary:hover {
-    opacity: 0.9;
+    opacity: 0.92;
   }
 
   .text-brand-primary {
@@ -100,6 +101,22 @@
   .bg-brand-secondary {
     background-color: var(--brand-secondary, hsl(var(--accent)));
   }
+
+  /* Subtle grain texture for hero sections */
+  .bg-grain {
+    background-image:
+      radial-gradient(hsl(var(--foreground) / 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Marquee animation for urgency strip */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
 }
 
 /* Smooth scrolling */
@@ -109,7 +126,7 @@ html {
 
 /* Selection color */
 ::selection {
-  @apply bg-accent/20 text-foreground;
+  @apply bg-accent/25 text-foreground;
 }
 
 /* Focus styles */

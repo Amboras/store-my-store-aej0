@@ -34,10 +34,10 @@ function AccordionItem({
       </button>
       <div
         className={`overflow-hidden transition-all duration-200 ${
-          isOpen ? 'max-h-96 pb-4' : 'max-h-0'
+          isOpen ? 'max-h-[40rem] pb-5' : 'max-h-0'
         }`}
       >
-        <div className="text-sm text-muted-foreground leading-relaxed">
+        <div className="text-sm text-muted-foreground leading-relaxed prose prose-sm max-w-none prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
           {children}
         </div>
       </div>
@@ -45,7 +45,7 @@ function AccordionItem({
   )
 }
 
-export default function ProductAccordion({ description, details }: ProductAccordionProps) {
+export default function ProductAccordion({ description }: ProductAccordionProps) {
   return (
     <div className="border-t">
       {description && (
@@ -54,20 +54,30 @@ export default function ProductAccordion({ description, details }: ProductAccord
         </AccordionItem>
       )}
 
-      <AccordionItem title="Shipping & Returns">
+      <AccordionItem title="Brewing Guide">
         <ul className="space-y-2">
-          <li>Free standard shipping on orders over $75</li>
-          <li>Express shipping available at checkout</li>
-          <li>Free returns within 30 days of delivery</li>
-          <li>Items must be unworn with original tags</li>
+          <li><strong>Pour-over:</strong> 1:16 ratio · 205°F water · 3-minute brew</li>
+          <li><strong>French press:</strong> 1:15 ratio · Coarse grind · 4-minute steep</li>
+          <li><strong>Espresso:</strong> 18g in / 36g out · 25–30 seconds</li>
+          <li><strong>Cold brew:</strong> 1:8 ratio · Coarse grind · 16 hours in the fridge</li>
         </ul>
       </AccordionItem>
 
-      <AccordionItem title="Care Instructions">
+      <AccordionItem title="Freshness & Storage">
         <ul className="space-y-2">
-          <li>Please refer to the care label on the product</li>
-          <li>Store in a cool, dry place away from direct sunlight</li>
-          <li>Handle with care to maintain product quality</li>
+          <li>Every bag is roasted within 7 days of shipping</li>
+          <li>Store in an airtight container, away from heat and light</li>
+          <li>Best enjoyed within 4 weeks of the roast date on the bag</li>
+          <li>Do <strong>not</strong> refrigerate or freeze — it introduces moisture</li>
+        </ul>
+      </AccordionItem>
+
+      <AccordionItem title="Shipping & Returns">
+        <ul className="space-y-2">
+          <li>Free standard shipping on orders over $50 (US)</li>
+          <li>Orders placed before 5pm ET ship the same day</li>
+          <li>Express &amp; international shipping available at checkout</li>
+          <li>100% Happiness Guarantee — if you don&apos;t love it, we&apos;ll refund you</li>
         </ul>
       </AccordionItem>
     </div>
