@@ -1,19 +1,3 @@
-'use client'
-
-import { useQuery } from '@tanstack/react-query'
-import { getMedusaClient } from '@/lib/medusa-client'
-
-export function useRegion() {
-  const { data: region, isLoading, error } = useQuery({
-    queryKey: ['region'],
-    queryFn: async () => {
-      const response = await getMedusaClient().store.region.list()
-      const firstRegion = response.regions[0]
-      if (!firstRegion) throw new Error('No region configured')
-      return firstRegion
-    },
-    staleTime: 1000 * 60 * 30, // 30 minutes — regions rarely change
-  })
-
-  return { region, regionId: region?.id, isLoading, error }
-}
+// Package file: @amboras-dev/storefront-core owns this logic. Edit core, not this shim.
+import '@/lib/amboras'
+export * from '@amboras-dev/storefront-core/client/use-region'

@@ -18,6 +18,7 @@ import { trackBeginCheckout } from '@/lib/analytics'
 import { trackMetaEvent, toMetaCurrencyValue } from '@/lib/meta-pixel'
 import { formatPrice } from '@/lib/utils/format-price'
 import type { ShippingOption, CartLineItem, LineItem } from '@/types'
+import { useEmptyCheckoutRedirect } from '@/components/checkout/use-empty-checkout-redirect'
 
 const StripePaymentForm = dynamic(
   () => import('@/components/checkout/stripe-payment-form').then(m => m.StripePaymentForm),
@@ -56,6 +57,7 @@ export default function CheckoutPage() {
     submitShippingStep, completeCheckout,
     isUpdating, error, clearError, paymentSession, stripeConfig,
   } = useCheckout()
+  useEmptyCheckoutRedirect()
 
   const { data: checkoutSettings } = useCheckoutSettings()
   const { customer, isLoggedIn, isLoading: authLoading } = useAuth()
